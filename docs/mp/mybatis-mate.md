@@ -36,7 +36,7 @@
 
   ​			4.ValueChange — 更改了 Primitive 或 Value。
 
-  比较两实体属性差异，可以将Change对象强转为ValueChange对象。使用ValueChange我们可以获取到两个对象属性间的差异。	
+  比较两实体属性差异，可以将Change对象强转为ValueChange对象。使用ValueChange我们可以获取到两个对象属性间的差异。
 
 ```java
 		List<Change> changes = DataAuditor.compare(obj1, obj2);
@@ -48,7 +48,7 @@
 ```
 - DataAuditEvent(**发布数据审计事件**)
 
-​		通过ApplicationEventPublisher发布DataAuditEvent事件，进行异步回调，最终也是调用的DataAuditor的compare方法。	
+​		通过ApplicationEventPublisher发布DataAuditEvent事件，进行异步回调，最终也是调用的DataAuditor的compare方法。
 
 ```java
 		applicationEventPublisher.publishEvent(new DataAuditEvent((t) -> {
@@ -388,7 +388,7 @@ SELECT u.* FROM user u WHERE (u.department_id IN ('1', '2', '3', '5')) AND u.mob
 
 ```
 
-  
+
 
 ## 表结构自动维护
 
