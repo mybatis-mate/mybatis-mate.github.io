@@ -1,10 +1,12 @@
 ## 数据审计（对账）
 
+![](https://minio.pigx.vip/oss/1658646303.jpg)
+
 👉 [mybatis-mate-audit](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-audit)
 
 对比两对象属性差异，例如：银行流水对账。主要是对[javers](https://javers.org/documentation/getting-started/#getting-started-audit)进行了封装。
 
-- Pom依赖
+- Pom 依赖
 
 ```java
 <dependencies>
@@ -22,21 +24,21 @@
 
 - DataAuditor(**比较两个实体差异**)
 
-  ​	提供了静态方法compare，调用Javers的compare方法**返回Change对象集合**。
+  ​ 提供了静态方法 compare，调用 Javers 的 compare 方法**返回 Change 对象集合**。
 
-  ​	Change对象主要有三个子类:	NewObject 、ObjectRemoved 、PropertyChange（最常见的更改的属性）。
+  ​ Change 对象主要有三个子类: NewObject 、ObjectRemoved 、PropertyChange（最常见的更改的属性）。
 
-  ​	其中PropertyChange又有具有以下子类型:
+  ​ 其中 PropertyChange 又有具有以下子类型:
 
-  ​			1.ContainerChange — Set、List 或 Array 中已更改项目的列表。
+  ​ 1.ContainerChange — Set、List 或 Array 中已更改项目的列表。
 
-  ​			2.MapChange — 更改的 Map 条目列表。
+  ​ 2.MapChange — 更改的 Map 条目列表。
 
-  ​			3.ReferenceChange — 更改的实体引用。
+  ​ 3.ReferenceChange — 更改的实体引用。
 
-  ​			4.ValueChange — 更改了 Primitive 或 Value。
+  ​ 4.ValueChange — 更改了 Primitive 或 Value。
 
-  比较两实体属性差异，可以将Change对象强转为ValueChange对象。使用ValueChange我们可以获取到两个对象属性间的差异。
+  比较两实体属性差异，可以将 Change 对象强转为 ValueChange 对象。使用 ValueChange 我们可以获取到两个对象属性间的差异。
 
 ```java
 		List<Change> changes = DataAuditor.compare(obj1, obj2);
@@ -46,9 +48,10 @@
            }
       }));
 ```
+
 - DataAuditEvent(**发布数据审计事件**)
 
-​		通过ApplicationEventPublisher发布DataAuditEvent事件，进行异步回调，最终也是调用的DataAuditor的compare方法。
+​ 通过 ApplicationEventPublisher 发布 DataAuditEvent 事件，进行异步回调，最终也是调用的 DataAuditor 的 compare 方法。
 
 ```java
 		applicationEventPublisher.publishEvent(new DataAuditEvent((t) -> {
@@ -61,13 +64,11 @@
         }));
 ```
 
-
-
 ## 数据敏感词过滤
 
 👉 [mybatis-mate-sensitive-words](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-sensitive-words)
 
-- pom依赖
+- pom 依赖
 
 ```java
 	 <dependencies>
@@ -246,7 +247,7 @@ public class ArticleController {
     public String json(@RequestBody Article article) throws Exception {
         return ParamsConfig.toJson(article);
     }
-  
+
     // 这里未实现 Sensitived 接口 SensitiveRequestBodyAdvice 不调用脱敏
     @PostMapping("/test")
     public String test(@RequestBody ArticleNoneSensitive article) throws Exception {
@@ -255,8 +256,6 @@ public class ArticleController {
 
 }
 ```
-
-
 
 ## 数据权限
 
@@ -287,7 +286,7 @@ public class DataScopeConfig {
     public final static String TEST = "test";
 
   	/**
-  	 * 处理数据权限逻辑 
+  	 * 处理数据权限逻辑
   	 * @see <a href="https://github.com/JSQLParser/JSqlParser/wiki">sql解析器Api</a>
   	 */
     @Bean
@@ -299,7 +298,7 @@ public class DataScopeConfig {
              * args 中包含 mapper 方法的请求参数，需要使用可以自行获取
              */
             @Override
-            public void setWhere(PlainSelect plainSelect, Object[] args, DataScopeProperty dataScopeProperty) {               
+            public void setWhere(PlainSelect plainSelect, Object[] args, DataScopeProperty dataScopeProperty) {
                 if (TEST.equals(dataScopeProperty.getType())) {
                     // 业务 test 类型
                     List<DataColumnProperty> dataColumns = dataScopeProperty.getColumns();
@@ -388,14 +387,12 @@ SELECT u.* FROM user u WHERE (u.department_id IN ('1', '2', '3', '5')) AND u.mob
 
 ```
 
-
-
 ## 表结构自动维护
 
 👉 [mybatis-mate-ddl-mysql](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-ddl-mysql)👉 [mybatis-mate-ddl-postgres](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-ddl-postgres)
 
 - 数据库 Schema 初始化，升级 SQL 自动维护，区别于 `flyway` 支持分表库、可控制代码执行 SQL 脚本
-- 首次会在数据库中生成 ddl_history 表，每次执行SQL脚本会自动维护版本信息。
+- 首次会在数据库中生成 ddl_history 表，每次执行 SQL 脚本会自动维护版本信息。
 
 ```java
 @Component
@@ -419,8 +416,6 @@ ddlScript.run(new StringReader("DELETE FROM user;\n" +
         "INSERT INTO user (id, username, password, sex, email) VALUES\n" +
         "(20, 'Duo', '123456', 0, 'Duo@baomidou.com');"));
 ```
-
-
 
 ## 字段数据绑定（字典回写）
 
@@ -489,7 +484,7 @@ public class DataBind implements IDataBind {
         if (BindType.USER_SEX.equals(fieldBind.type())) {
             metaObject.setValue(fieldBind.target(), SEX_MAP.get(String.valueOf(fieldValue)));
         }
-       
+
     }
 }
 ```
@@ -519,7 +514,7 @@ public class User {
 ```java
 @Component
 public class JsonBindStrategy implements IJsonBindStrategy {
-  
+
      // 绑定类型
      public interface Type {
         String departmentRole = "departmentRole";
@@ -570,8 +565,6 @@ public class JsonBindStrategy implements IJsonBindStrategy {
 | PBEWithHMACSHA512AndAES_256 |                      混合算法                       |
 |    PBEWithSHA1AndDESede     |                      混合算法                       |
 |    PBEWithSHA1AndRC2_40     |                      混合算法                       |
-
-
 
 👉 [国密 SM2.3.4 算法使用规范](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/国密SM2.3.4算法使用规范)
 
