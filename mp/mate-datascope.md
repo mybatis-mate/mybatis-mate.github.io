@@ -1,5 +1,7 @@
 ## 数据权限
 
+![1659239409](https://minio.pigx.vip/oss/1659239409.jpg)
+
 👉 [mybatis-mate-datascope](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-datascope)
 
 1. 注解 @DataScope
