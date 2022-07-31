@@ -49,7 +49,7 @@ public class MysqlDdl implements IDdl {
 ## 进阶: 代码层手动控制执行脚本
 
 
-```
+```java
 //  注入 DDL 脚本
 @Resource
 private DdlScript ddlScript;
