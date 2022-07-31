@@ -9,9 +9,6 @@
 
 ## 快速开始
 
-
-ddlScript
-
 #### ① Jar 依赖
 
 ```xml
@@ -48,6 +45,14 @@ public class MysqlDdl implements IDdl {
 
 ## 进阶: 代码层手动控制执行脚本
 
+> 注入脚本执行类，支持自定义执行脚本
+
+```java
+@Bean
+public DdlScript ddlScript(DataSource dataSource) {
+    return new DdlScript(dataSource);
+}
+```
 
 ```java
 //  注入 DDL 脚本

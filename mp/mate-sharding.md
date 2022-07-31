@@ -1,6 +1,51 @@
-## 多数据源分库分表（读写分离）
+## 适用场景
+
+![](https://minio.pigx.vip/oss/1659257873.jpg)
 
 👉 [mybatis-mate-sharding](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-sharding)
+
+
+## 快速开始
+
+#### ① Jar 依赖
+
+```xml
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.5.2</version>
+</dependency>
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-mate-starter</artifactId>
+    <version>1.2.5</version>
+</dependency>
+```
+
+#### ② 配置数据源信息
+
+```yaml
+mybatis-mate:
+  cert:
+    grant: XXX
+    license: XX
+  sharding:
+    datasource:
+      mysql:
+        - key: node1
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+          username: root
+          password: root
+      mysql2:
+        - key: node1
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/datav?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+          username: root
+          password: root
+```
+
+####   ③ Mapper 注解切换数据源
 
 - 注解 @Sharding
 
@@ -8,42 +53,14 @@
 | :------: | :----: | :------: | :--------------------: | ---------------------------- |
 |  value   | String |    是    |           ""           | 分库组名，空使用默认主数据源 |
 | strategy | Class  |    否    | RandomShardingStrategy | 分库&分表策略                |
-
-- 配置
-
-```yaml
-mybatis-mate:
-  sharding:
-    health: true # 健康检测
-    primary: mysql # 默认选择数据源
-    datasource:
-      mysql: # 数据库组
-        - key: node1
-          ...
-        - key: node2
-          cluster: slave # 从库读写分离时候负责 sql 查询操作，主库 master 默认可以不写
-          ...
-      postgres:
-        - key: node1 # 数据节点
-          ...
-```
-
 - 注解 `Sharding` 切换数据源，组内节点默认随机选择（查从写主）
 
 ```java
 @Mapper
-@Sharding("mysql")
 public interface UserMapper extends BaseMapper<User> {
 
-    @Sharding("postgres")
+    @Sharding("mysql")
     Long selectByUsername(String username);
 
 }
-```
-
-- 切换指定数据库节点
-
-```java
-// 切换到 mysql 从库 node2 节点
-ShardingKey.change("mysqlnode2");
 ```
