@@ -1,6 +1,6 @@
 ## 适用场景
 
-![1659239409](https://minio.pigx.vip/oss/1659239409.jpg)
+![](https://minio.pigx.vip/oss/1659239409.jpg)
 
 !> 配套源码👉 [mybatis-mate-encrypt](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-encrypt)
 
@@ -10,7 +10,7 @@
 
 #### ① Jar 依赖
 
-```
+```xml
 <dependency>
     <groupId>com.baomidou</groupId>
     <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -24,7 +24,7 @@
 ```
 
 
-#### ④ 配置加密参数
+#### ② 配置加密参数
 
 ```yaml
 mybatis-mate:

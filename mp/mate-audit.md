@@ -21,7 +21,7 @@
 </dependency>
 ```
 
-#### ②  目标ORM 实体配置审计相关注解
+#### ② 目标 ORM 实体配置审计相关注解
 
 ```java
 @Getter
@@ -56,9 +56,7 @@ private void printChange(Change change) {
 }
 ```
 
-
 ## 进阶 异步处理审计事件 DataAuditEvent
-
 
 ​ 通过 ApplicationEventPublisher 发布 DataAuditEvent 事件，进行异步回调，最终也是调用的 DataAuditor 的 compare 方法。
 

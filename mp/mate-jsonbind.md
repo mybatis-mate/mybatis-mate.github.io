@@ -1,13 +1,36 @@
-## 虚拟属性绑定
+## 适用场景
 
-👉 [mybatis-mate-jsonbind](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-jsonbind)
+![](https://minio.pigx.vip/oss/1659250082.jpg)
 
-- 注解 @JsonBind
+
+!> 配套源码:  👉 [mybatis-mate-jsonbind](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-jsonbind)
+
+
+
+## 快速开始
+
+#### ① Jar 依赖
+
+```xml
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.5.2</version>
+</dependency>
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-mate-starter</artifactId>
+    <version>1.2.5</version>
+</dependency>
+```
+
+#### ② ORM 实体注解 @JsonBind
 
 ```java
 @Getter
 @Setter
 @ToString
+// 虚拟属性绑定策略
 @JsonBind(JsonBindStrategy.Type.departmentRole)
 public class User {
     private Long id;
@@ -17,8 +40,7 @@ public class User {
 
 }
 ```
-
-- 返回 Json 虚拟属性绑定策略
+#### ③ 创建 Json 虚拟属性绑定策略
 
 ```java
 @Component
