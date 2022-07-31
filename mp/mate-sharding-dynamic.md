@@ -1,12 +1,69 @@
 ## 适用场景
 
-![](https://minio.pigx.vip/oss/1659273751.jpg)
+![1659276730](https://minio.pigx.vip/oss/1659276730.jpg)
 
-## 多数据源动态加载卸载
+## 快速开始
 
-👉 [mybatis-mate-sharding-dynamic](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-sharding-dynamic)
+#### ① jar 包依赖
 
-- 配置切换数据源规则
+```xml
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.5.2</version>
+</dependency>
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-mate-starter</artifactId>
+    <version>1.2.5</version>
+</dependency>
+```
+
+    <artifactId>mybatis-mate-starter</artifactId>
+    <version>1.2.5</version>
+</dependency>
+```
+
+#### ②  配置分库分表
+
+```yaml
+mybatis-mate:
+  cert:
+    grant: XXX
+    license: XXX
+  sharding:
+    health: true # 健康检测
+    primary: mysql # 默认选择数据源
+    datasource:
+      mysql:
+        - key: node1
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+          username: root
+          password: root
+        - key: node2
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/test2?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+          username: root
+          password: root
+```
+
+#### ③ 手动切换节点
+
+!> 切换指定 group+key
+
+```java
+ShardingKey.change("mysqlnode1");
+```
+
+- 示例:
+
+```java
+ShardingKey.change(db);
+mapper.selectList(null);
+```
+
+#### ④ 自动 IShardingProcessor 策略
 
 ```java
 @Component
@@ -25,35 +82,9 @@ public class MyShardingProcessor implements IShardingProcessor {
                                     String datasourceKey) {
         System.err.println(" 执行方法：" + mappedStatement.getId());
         System.err.println(" datasourceKey = " + datasourceKey);
-        // 如果想自定义控制切换那个数据源可以在此方法中处理
-        // ShardingKey.change(数据源Key)
-        // 返回 true 则按照你的切换方案执行 false 默认规则切换 @Sharding 注解才有效
-        // datasourceKey = null 时候 mate 底层依然会使用默认数据源
+        // 可以根据各种参数综合选择 datasourceKey , RequestContextHolder.currentRequestAttributes() 
+        ShardingKey.change(datasourceKey);
         return true;
     }
 }
-```
-
-- 测试
-
-```java
- @GetMapping("/test")
-    public List<User> test(String db) throws Exception {
-        // 这里始终使用默认数据源切换规则，更多细节可以查看 MyShardingProcessor 处理器打印信息
-        System.err.println("~~~ count =  " + mapper.selectCount(null));
-        if ("test2".equals(db)) {
-            // 切换到指定数据源，如果数据源之前不存在会装载配置源
-            // 数据源的装载可以放到初始化或者添加新数据源的逻辑里面执行
-            shardingDatasource.change(db, key -> DataSourceProperty.of(
-                    "com.mysql.cj.jdbc.Driver",
-                    "jdbc:mysql://localhost:3306/" + db + "?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC",
-                    "root",
-                    "root"
-            ));
-            // 卸载数据源
-            // shardingDatasource.removeDataSource(db);
-        }
-        // 请求地址 db=test2 这里会切换到数据源 test2 界面显示数据会发生变好
-        return mapper.selectList(null);
-    }
 ```

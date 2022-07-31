@@ -36,7 +36,7 @@ docker run -p 3316:3306 --name mysql_master -e MYSQL_ALLOW_EMPTY_PASSWORD=1 -e R
 docker run --name mysql_slave -p 3317:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=1 -e REPLICATION_USER=lengleng -e REPLICATION_PASSWORD=lengleng --link mysql_master:master -d pig4cloud/mysql-master-slave:5.7
 ```
 
-#### ③ 配置多数据库
+#### ③ 配置读写分离
 
 ```yaml
 mybatis-mate:
@@ -88,3 +88,4 @@ public boolean testSharding() throws Exception {
 }
 ```
 ![](https://minio.pigx.vip/oss/1659275897.png)
+
