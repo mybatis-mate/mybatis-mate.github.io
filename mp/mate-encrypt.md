@@ -1,5 +1,7 @@
 ## 字段加密解密
 
+![1659239409](https://minio.pigx.vip/oss/1659239409.jpg)
+
 👉 [mybatis-mate-encrypt](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-encrypt)
 
 - 注解 @FieldEncrypt

@@ -1,5 +1,4 @@
 - 🎈 目录
-  - [mybatis-mate](mp/mybatis-mate.md)
   - [字段加密解密](mp/mate-encrypt.md.md)
   - [数据审计（对账）](mp/mate-audit.md)
   - [虚拟属性绑定](mp/mate-jsonbind.md)
