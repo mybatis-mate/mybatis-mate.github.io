@@ -19,11 +19,6 @@
 </dependency>
 ```
 
-    <artifactId>mybatis-mate-starter</artifactId>
-    <version>1.2.5</version>
-</dependency>
-```
-
 #### ②  配置分库分表
 
 ```yaml
