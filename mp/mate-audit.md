@@ -10,10 +10,6 @@
 
 ```xml
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-jdbc</artifactId>
-</dependency>
-<dependency>
     <groupId>com.baomidou</groupId>
     <artifactId>mybatis-plus-boot-starter</artifactId>
     <version>3.5.2</version>
@@ -22,11 +18,6 @@
     <groupId>com.baomidou</groupId>
     <artifactId>mybatis-mate-starter</artifactId>
     <version>1.2.5</version>
-</dependency>
-<dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <scope>runtime</scope>
 </dependency>
 ```
 
