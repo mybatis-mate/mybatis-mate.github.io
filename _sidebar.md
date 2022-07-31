@@ -1,6 +1,12 @@
-- 🎈目录
-  - [🦅mybatis-mate](mp/mybatis-mate.md)
-
-
-  
-
+- 🎈 目录
+  - [mybatis-mate](mp/mybatis-mate.md)
+  - [字段加密解密](mp/mate-encrypt.md.md)
+  - [数据审计（对账）](mp/mate-audit.md)
+  - [虚拟属性绑定](mp/mate-jsonbind.md)
+  - [敏感词过滤](mp/mate-sensitive-words.md)
+  - [数据权限](mp/mate-datascope.md)
+  - [表结构自动维护](mp/mate-ddl-mysql.md)
+  - [字段数据绑定（字典回写）](mp/mybatis-mate-dict.md)
+  - [字段脱敏](mp/mate-sensitive-jackson.md)
+  - [多数据源分库分表（读写分离）](mp/mate-sharding-dynamic.md)
+  - [多数据源事务（ jta atomikos）](mp/mate-sharding-jta-atomikos.md)
