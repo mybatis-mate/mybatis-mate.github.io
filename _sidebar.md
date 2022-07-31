@@ -10,4 +10,4 @@
   - [多数据源分库分表](mp/mate-sharding-dynamic.md)
   - [多数据源读写分离](mp/mate-sharding-dynamic.md)
   - [多数据源动态策略](mp/mate-sharding-dynamic.md)
-  - [多数据源事务（ jta atomikos）](mp/mate-sharding-jta-atomikos.md)
+  - [多数据源事务管理](mp/mate-sharding-jta-atomikos.md)
