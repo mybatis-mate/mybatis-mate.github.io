@@ -4,7 +4,7 @@
 
 > 更敏捷优雅的处理数据
 
-<a href="/_media/pic/mate.png" target="_blank">获取源码</a>
+<a href="/_media/pic/mate.png" target="_blank">联系我们</a>
 [开始快速](README.md)
 
 
