@@ -28,7 +28,7 @@
 
 ```java
 @Component
-public class MysqlDdl implements IDdl {
+public class MysqlDdl extends SimpleDdl {
 
     /**
      * 执行 SQL 脚本方式
