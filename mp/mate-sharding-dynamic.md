@@ -26,6 +26,15 @@
 #### ②  配置分库分表
 
 ```yaml
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+#  方便调试
+logging:
+  level:
+    mybatis.mate: debug
+
 mybatis-mate:
   cert:
     grant: XXX
@@ -56,22 +65,9 @@ mybatis-mate:
 public interface UserMapper extends BaseMapper<User> {
 }
 ```
-#### ④ 手动切换节点
 
-!> 切换指定 group+key
 
-```java
-ShardingKey.change("mysqlnode1");
-```
-
-- 示例:
-
-```java
-ShardingKey.change(db);
-mapper.selectList(null);
-```
-
-#### ⑤ 进阶: 自动切换节点 IShardingProcessor 策略
+#### ④ 进阶: 自动切换节点 IShardingProcessor 策略
 
 ```java
 @Component
@@ -97,7 +93,7 @@ public class MyShardingProcessor implements IShardingProcessor {
 }
 ```
 
-#### ⑥ 进阶： 代码初始化数据源
+#### ⑤ 进阶： 代码初始化数据源
 
 ```java
    @Primary

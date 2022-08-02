@@ -103,3 +103,18 @@ public boolean testSharding() throws Exception {
 ```
 ![](https://minio.pigx.vip/oss/1659275897.png)
 
+
+#### ⑥ 手动切换节点
+
+!> 切换指定 group+key ，切换同一组的哪个节点
+
+```java
+ShardingKey.change("mysqlnode1");
+```
+
+- 示例:
+
+```java
+ShardingKey.change(db);
+mapper.selectList(null);
+```
