@@ -65,12 +65,12 @@ mybatis-mate:
         - key: node1
           cluster: master
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://172.27.0.236:3316/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+          url: jdbc:mysql://172.16.1.200:3316/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
           username: root
         - key: node2
           cluster: slave
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://172.27.0.236:3317/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+          url: jdbc:mysql://172.16.1.200:3317/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
           username: root
 ```
 
