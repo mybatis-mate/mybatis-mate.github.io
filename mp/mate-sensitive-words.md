@@ -67,9 +67,41 @@ return new SensitiveWordsProcessor() {
 ```
 
 
-
 #### ③ 测试运行
 
 请求中包含的敏感字的数据，都会被脱敏接受
 
 ![](https://minio.pigx.vip/oss/1659251421.png)
+
+
+#### ④进阶： 处理post body
+
+```java
+@RestControllerAdvice
+@RequiredArgsConstructor
+public class SensitiveRequestBodyAdvice extends RequestBodyAdviceAdapter {
+
+    private final IParamsProcessor paramsProcessor;
+
+
+    @Override
+    public boolean supports(MethodParameter methodParameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
+        return true;
+    }
+
+
+    @Override
+    public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter, Type targetType,
+                                           Class<? extends HttpMessageConverter<?>> converterType) {
+        try {
+            String content = StreamUtils.copyToString(inputMessage.getBody(), StandardCharsets.UTF_8);
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(paramsProcessor.execute("json",
+                    content).getBytes(StandardCharsets.UTF_8));
+            return new MappingJacksonInputMessage(inputStream, inputMessage.getHeaders());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return inputMessage;
+    }
+}
+```
