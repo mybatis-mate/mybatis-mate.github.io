@@ -22,6 +22,11 @@
     <artifactId>mybatis-mate-starter</artifactId>
     <version>1.2.5</version>
 </dependency>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-actuator</artifactId>
+</dependency>
 ```
 
 #### ② 搭建 mysql 主从分离
@@ -39,6 +44,15 @@ docker run --name mysql_slave -p 3317:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=1 -e RE
 #### ③ 配置读写分离
 
 ```yaml
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+#  方便调试
+logging:
+  level:
+    mybatis.mate: debug
+
 mybatis-mate:
   cert:
     grant: XXX
