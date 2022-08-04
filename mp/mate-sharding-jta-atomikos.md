@@ -35,15 +35,16 @@ mybatis-mate:
     health: true # 健康检测
     primary: mysql # 默认选择数据源
     datasource:
-      mysql:
+      mysql1:
         - key: node1
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+          url: jdbc:mysql://127.0.0.1:3306/mate?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
           username: root
           password: root
-        - key: node2
+      mysql2:
+        - key: node1
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/test2?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+          url: jdbc:mysql://127.0.0.1:3306/mate?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
           username: root
           password: root
 ```
