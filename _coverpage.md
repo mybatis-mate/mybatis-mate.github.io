@@ -2,9 +2,22 @@
 
 > MyBatisPlus 企业版
 
-> 更敏捷优雅的处理数据
+- 更敏捷优雅的处理数据
 
-<a href="/_media/pic/mate.png" target="_blank">联系我们</a>
-[开始快速](README.md)
+<div class='buttons'>
+<a href="/#/README"><span>快速开始</span></a>
+</div>
 
 
+<!--体验移动端的弹框-->
+<div class='mini_qr' id="kefu">
+<img
+  src='/_media/pic/mate.png'>
+<p>联系我们</p>
+</div>
+
+<div class='beian' id="kefu">
+<a href='http://beian.miit.gov.cn'>
+<p>当前版本: 1.4.0  || 更新时间: 2023-1-16</p>
+</a>
+</div>
