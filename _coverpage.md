@@ -5,6 +5,7 @@
 - 更敏捷优雅的处理数据
 
 <div class='buttons'>
+<a href="/_media/paper.html"><span>产品介绍</span></a>
 <a href="/#/README"><span>快速开始</span></a>
 </div>
 
