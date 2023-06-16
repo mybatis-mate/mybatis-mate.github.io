@@ -1,6 +1,6 @@
 ## 适用场景
 
-![](https://minio.pigx.vip/oss/1659257873.jpg)
+![](https://minio.pigx.top/oss/1659257873.jpg)
 
 👉 [mybatis-mate-sharding](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-sharding)
 

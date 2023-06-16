@@ -1,6 +1,6 @@
 ## 适用场景
 
-![](https://minio.pigx.vip/oss/1659250082.jpg)
+![](https://minio.pigx.top/oss/1659250082.jpg)
 
 
 !> 配套源码:  👉 [mybatis-mate-jsonbind](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-jsonbind)

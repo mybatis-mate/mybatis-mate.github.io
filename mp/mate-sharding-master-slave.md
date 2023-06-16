@@ -1,6 +1,6 @@
 ## 适用场景
 
-![](https://minio.pigx.vip/oss/1659275395.jpg)
+![](https://minio.pigx.top/oss/1659275395.jpg)
 
 读写分离，基本的原理是让主数据库处理事务性增、改、删操作（INSERT、UPDATE、DELETE），而从数据库处理SELECT查询操作。数据库复制被用来把事务性操作导致的变更同步到集群中的从数据库。
 
@@ -86,7 +86,7 @@ public interface UserMapper extends BaseMapper<User> {
 - 注解 @Sharding
 
 
-![](https://minio.pigx.vip/oss/1659276135.png)
+![](https://minio.pigx.top/oss/1659276135.png)
 
 #### ⑤ 调用测试
 
@@ -101,7 +101,7 @@ public boolean testSharding() throws Exception {
     return true;
 }
 ```
-![](https://minio.pigx.vip/oss/1659275897.png)
+![](https://minio.pigx.top/oss/1659275897.png)
 
 
 #### ⑥ 手动切换节点

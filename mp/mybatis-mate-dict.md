@@ -1,6 +1,6 @@
 ## 使用场景
 
-![1659253222](https://minio.pigx.vip/oss/1659253222.jpg)
+![1659253222](https://minio.pigx.top/oss/1659253222.jpg)
 
 !> 配套源码 👉 [mybatis-mate-dict](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-dict)
 

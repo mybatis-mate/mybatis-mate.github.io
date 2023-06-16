@@ -1,6 +1,6 @@
 ## 使用场景
 
-![](https://minio.pigx.vip/oss/1659250878.jpg)
+![](https://minio.pigx.top/oss/1659250878.jpg)
 
 !> 配套源码: 👉 [mybatis-mate-sensitive-words](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-sensitive-words)
 
@@ -71,7 +71,7 @@ return new SensitiveWordsProcessor() {
 
 请求中包含的敏感字的数据，都会被脱敏接受
 
-![](https://minio.pigx.vip/oss/1659251421.png)
+![](https://minio.pigx.top/oss/1659251421.png)
 
 
 #### ④进阶： 处理post body

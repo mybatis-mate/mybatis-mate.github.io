@@ -1,7 +1,7 @@
 ## 适用场景
 
 
-![1659252133](https://minio.pigx.vip/oss/1659252133.jpg)
+![1659252133](https://minio.pigx.top/oss/1659252133.jpg)
 
 
 !> 配套源码: 👉 [mybatis-mate-sensitive-jackson](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-sensitive-jackson)
@@ -32,12 +32,12 @@ public class User {
 
 #### ② 测试运行
 
-![](https://minio.pigx.vip/oss/1659252548.png)
+![](https://minio.pigx.top/oss/1659252548.png)
 
 
 - 数据库实际存储的数据
 
-![](https://minio.pigx.vip/oss/1659252565.png)
+![](https://minio.pigx.top/oss/1659252565.png)
 
 ## 进阶
 

@@ -1,6 +1,6 @@
 ## 适用场景
 
-![1659276730](https://minio.pigx.vip/oss/1659276730.jpg)
+![1659276730](https://minio.pigx.top/oss/1659276730.jpg)
 
 ## 快速开始
 

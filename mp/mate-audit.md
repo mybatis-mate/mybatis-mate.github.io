@@ -1,6 +1,6 @@
 ## 适用场景
 
-![](https://minio.pigx.vip/oss/1658646303.jpg)
+![](https://minio.pigx.top/oss/1658646303.jpg)
 
 !> 配套源码: 👉 [mybatis-mate-audit](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-audit)。 对比两对象属性差异，例如：银行流水对账。主要是对[javers](https://javers.org/documentation/getting-started/#getting-started-audit)进行了封装。
 

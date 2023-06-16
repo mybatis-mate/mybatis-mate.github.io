@@ -1,6 +1,6 @@
 ## 适用场景
 
-![](https://minio.pigx.vip/oss/1659239409.jpg)
+![](https://minio.pigx.top/oss/1659239409.jpg)
 
 !> 配套源码👉 [mybatis-mate-encrypt](https://gitee.com/baomidou/mybatis-mate-examples/tree/master/mybatis-mate-encrypt)
 
