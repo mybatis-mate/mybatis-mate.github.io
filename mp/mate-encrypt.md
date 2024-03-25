@@ -18,13 +18,13 @@
 ```xml
 <dependency>
     <groupId>com.baomidou</groupId>
-    <artifactId>mybatis-plus-boot-starter</artifactId>
-    <version>3.5.2</version>
+    <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+    <version>3.5.5</version>
 </dependency>
 <dependency>
     <groupId>com.baomidou</groupId>
     <artifactId>mybatis-mate-starter</artifactId>
-    <version>1.2.5</version>
+    <version>1.3.4</version>
 </dependency>
 ```
 
